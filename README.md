@@ -1,55 +1,58 @@
-# Moj IT Servis — Rezervacija servisnega termina (Naloga 8)
+# Moj IT servis (MojITServis)
 
-Mobilna aplikacija **Moj IT servis** omogoča uporabnikom hitro in enostavno rezervacijo servisnega termina za računalniške naprave, mobilne telefone in tiskalnike. Aplikacija je razvita v programskem jeziku **Java** z uporabo klasičnega Android uporabniškega vmesnika v **XML** formatu.
+V tej nalogi sem naredil demonstracijsko aplikacijo **Moj IT servis** za naročanje računalniških naprav na servis. Aplikacija ima dve aktivnosti: `MainActivity` (izbira naprave) in `RezervacijaActivity` (obrazec za rezervacijo termina). Uporabnik izbere napravo, vnese kontaktne podatke, opiše težavo, določi datum in uro, izbere način kontakta in potrdi zahtevek. Aplikacija ne potrebuje strežnika, zahtevek se v resnici ne pošlje.
 
----
+## Cilji
 
-## 📱 Funkcionalnosti aplikacije
+- izdelati novo aplikacijo z imenom `MojITServis` s predlogo Empty Views Activity in programskim jezikom Java,
+- v `MainActivity` pripraviti začetni zaslon s tremi klikljivimi slikami (`ImageView`): Računalnik, Telefon in Tiskalnik, vsaka s kratkim opisom in `contentDescription`,
+- ob kliku z eksplicitnim `Intent` zagnati `RezervacijaActivity`, izbrano napravo posredovati s `putExtra` in jo izpisati v naslovu obrazca,
+- v `activity_rezervacija.xml` pripraviti pomični obrazec (`ScrollView`) z naslovi razdelkov, poljema `EditText` za ime in priimek (`textPersonName`) in e-pošto (`textEmailAddress`), poljem za telefon (`phone`), poljem za opis težave (`textCapSentences | textAutoCorrect | textMultiLine`) ter ustreznimi namigi (`hint`),
+- dodati izbirnik `Spinner` z vrstami posega (Diagnostika, Popravilo, Nadgradnja, Drugo), vrednosti shraniti v `string-array` v `strings.xml`, izbiro pa zajeti z `ArrayAdapter` in `OnItemSelectedListener`,
+- dodati izbiro datuma (`DatePickerDialog`) in ure (`TimePickerDialog`) s `DialogFragment` in ustreznima poslušalcema, izbrani vrednosti pa izpisati v obrazcu,
+- dodati `RadioGroup` s tremi možnostmi (E-pošta, Telefonski klic, SMS), pri čemer se ob spremembi izbira shrani in prikaže v `Toast`,
+- gumb **POTRDI REZERVACIJO** naj preveri obvezna polja, datum, uro in način kontakta (datum ne sme biti v preteklosti), pri manjkajočih podatkih pa prikaže opozorilo (`setError` ali `Toast`) in ne odpre potrditvenega okna,
+- z `AlertDialog.Builder` prikazati povzetek rezervacije z gumboma **POTRDI** in **PREKLIČI**,
+- vsa uporabniku vidna besedila zapisati v `strings.xml`,
+- spremeniti privzeto ikono aplikacije z orodjem Image Asset Studio (Launcher Icons),
+- generirati datoteko `.apk` in aplikacijo namestiti na telefon z Androidom.
 
-1. **Začetni zaslon (`MainActivity`)**:
-   - Izbira med tremi vrstami naprav: **Računalnik**, **Telefon** in **Tiskalnik**.
-   - Sodoben vizualni izgled s karticami, opisom storitev in ikonicami.
-   - Uporaba eksplicitnega `Intent` z dodanim podatkom (`putExtra`), ki posreduje izbrano napravo v drugo dejavnost.
+## Delovanje aplikacije
 
-2. **Obrazec za rezervacijo (`RezervacijaActivity`)**:
-   - Pomični obrazec (`ScrollView`), prilagojen za različne velikosti zaslonov.
-   - Vnos stikov in podatkov:
-     - **Ime in priimek** (`inputType="textPersonName|textCapWords"`)
-     - **E-poštni naslov** (`inputType="textEmailAddress"`)
-     - **Telefonska številka** (`inputType="phone"`)
-     - **Vrsta posega** (`Spinner` z možnostmi *Diagnostika*, *Popravilo*, *Nadgradnja*, *Drugo*)
-     - **Opis težave** (`inputType="textCapSentences|textAutoCorrect|textMultiLine"`)
-   - Izbira datuma in ure obiska prek pogovornih oken (`DatePickerDialog` in `TimePickerDialog`).
-   - Onemogočanje izbire preteklih datumov.
-   - Izbira načina kontakta prek `RadioGroup` (`E-pošta`, `Telefonski klic`, `SMS`) s prikazom `Toast` ob spremembi.
-   - Preverjanje veljavnosti podatkov (validacija obveznih polj, format e-pošte, veljavnost datuma).
+| Element | Kaj naredi | Uporabljeno |
+|---------|-----------|-------------|
+| **Slike naprav** | odprejo obrazec za izbrano napravo, ki se izpiše v naslovu | `Intent` (eksplicitni) + `putExtra` |
+| **Ime, e-pošta, telefon, opis** | vnos podatkov z ustrezno zaslonsko tipkovnico | `EditText` + `inputType` |
+| **Vrsta posega** | izbira ene od štirih možnosti | `Spinner` + `ArrayAdapter` + `OnItemSelectedListener` |
+| **Datum** | odpre koledar, izbrani datum se izpiše v obrazcu | `DatePickerDialog` + `DialogFragment` |
+| **Ura** | odpre izbirnik ure, izbrana ura se izpiše v obrazcu | `TimePickerDialog` + `DialogFragment` |
+| **Način kontakta** | izbrana je lahko le ena možnost, izbira se prikaže v obvestilu | `RadioGroup` + `Toast` |
+| **POTRDI REZERVACIJO** | preveri vnos in prikaže povzetek rezervacije | `AlertDialog.Builder` |
 
-3. **Potrditev zahtevka (`AlertDialog`)**:
-   - Prikaz povzetka rezervacije v `AlertDialog.Builder`.
-   - Gumb **POTRDI** prikaže sporočilo o uspešni oddaji (`Toast`).
-   - Gumb **PREKLIČI** zapre pogovorno okno in ohrani vnesene podatke.
+### Preverjanje vnosa
 
-4. **Dodatni izziv**:
-   - Vnos zaščitne kode (`inputType="textPassword"`).
-   - Gumb za hitri klic servisa z uporabo implicitnega `Intent` (`Intent.ACTION_DIAL`).
+- ime in priimek, e-pošta, telefon in opis težave so obvezni (opozorilo z `setError`),
+- e-pošta mora biti v veljavni obliki,
+- obvezni so tudi datum, ura in način kontakta (opozorilo s `Toast`),
+- datum ne sme biti v preteklosti,
+- če kateri podatek manjka, se potrditveno okno ne odpre.
 
----
+### Potrditveno okno
 
-## 🛠️ Tehnične podrobnosti
+Povzetek vsebuje napravo, vrsto posega, ime, datum, uro in način kontakta. Gumb **POTRDI** prikaže `Toast` o uspešni demonstracijski oddaji, gumb **PREKLIČI** pa okno zapre in uporabnik ostane v obrazcu.
 
-- **Jezik**: Java (JDK 11)
-- **Min SDK**: 29 (Android 10)
-- **Target SDK**: 37
-- **Uporabniški vmesnik**: Material Design 3, XML Layouts
-- **Arhitektura**: Multi-Activity (`MainActivity`, `RezervacijaActivity`)
+## Zaslonske slike aplikacije
+<img width="200" height="411" alt="Slika1" src="https://github.com/user-attachments/assets/038274b9-db20-4d04-a16d-bf44a4e704eb" />
+<img width="200" height="411" alt="Slika2" src="https://github.com/user-attachments/assets/4b6e98ce-3a91-4c9a-92cf-2cd6dc24b4b1" />
+<img width="200" height="411" alt="Slika3" src="https://github.com/user-attachments/assets/385d82ba-fd61-4163-be8e-aed5dd4c8b4a" />
+<img width="200" height="411" alt="Slika4" src="https://github.com/user-attachments/assets/baa63286-5546-4bd2-bb98-2ff5d97c1059" />
 
-## 📸 Zaslonske slike aplikacije
 
-| Začetni zaslon (`MainActivity`) | Obrazec (`RezervacijaActivity`) | Izbira datuma (`DatePicker`) | Potrditev (`AlertDialog`) |
-| :---: | :---: | :---: | :---: |
-| *(Priložite sliko 1)* | *(Priložite sliko 2)* | *(Priložite sliko 5)* | *(Priložite sliko 7)* |
 
----
+## Tehnologije
 
-## 📜 Licenca
-Projekt je pripravljen kot šolska/študijska naloga pri predmetu Razvoj mobilnih aplikacij.
+- Java, AndroidX (`AppCompatActivity`, `DialogFragment`)
+- XML postavitve (`ScrollView`, `LinearLayout`)
+- `Spinner`, `RadioGroup`, `DatePickerDialog`, `TimePickerDialog`, `AlertDialog`
+- Image Asset Studio za ikono aplikacije
+
