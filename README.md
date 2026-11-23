@@ -30,10 +30,6 @@ V tej nalogi sem naredil demonstracijsko aplikacijo **Moj IT servis** za naroča
 | **POTRDI REZERVACIJO** | preveri vnos in prikaže povzetek rezervacije | `AlertDialog.Builder` |
 
 
-### Potrditveno okno
-
-Povzetek vsebuje napravo, vrsto posega, ime, datum, uro in način kontakta. Gumb **POTRDI** prikaže `Toast` o uspešni demonstracijski oddaji, gumb **PREKLIČI** pa okno zapre in uporabnik ostane v obrazcu.
-
 ## Zaslonske slike aplikacije
 <img width="200" height="411" alt="Slika1" src="https://github.com/user-attachments/assets/038274b9-db20-4d04-a16d-bf44a4e704eb" />
 <img width="200" height="411" alt="Slika2" src="https://github.com/user-attachments/assets/4b6e98ce-3a91-4c9a-92cf-2cd6dc24b4b1" />
