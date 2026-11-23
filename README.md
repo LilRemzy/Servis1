@@ -43,64 +43,11 @@ Mobilna aplikacija **Moj IT servis** omogoča uporabnikom hitro in enostavno rez
 - **Uporabniški vmesnik**: Material Design 3, XML Layouts
 - **Arhitektura**: Multi-Activity (`MainActivity`, `RezervacijaActivity`)
 
----
-
-## 📦 Namestitvena datoteka (*.apk*)
-
-Datoteka `.apk` za namestitev aplikacije na Android napravo se nahaja na poti:
-```text
-app/build/outputs/apk/debug/app-debug.apk
-```
-
-Za namestitev na telefon prenesite datoteko `app-debug.apk` in jo odprite na mobilni napravi (omogočite namestitev iz neznanih virov).
-
----
-
 ## 📸 Zaslonske slike aplikacije
 
 | Začetni zaslon (`MainActivity`) | Obrazec (`RezervacijaActivity`) | Izbira datuma (`DatePicker`) | Potrditev (`AlertDialog`) |
 | :---: | :---: | :---: | :---: |
 | *(Priložite sliko 1)* | *(Priložite sliko 2)* | *(Priložite sliko 5)* | *(Priložite sliko 7)* |
-
----
-
-## ❓ Odgovori na vprašanja iz učnega lista
-
-### 1. V čem se pri `EditText` razlikujejo vrednosti `inputType="textEmailAddress"`, `"phone"` in `"textMultiLine"`?
-- **`textEmailAddress`**: Prilagodi zaslonsko tipkovnico za vnos e-poštnih naslovov — na tipkovnici se prikažeta gumb `@` ter domenska pika `.`, ki olajšata vneseno e-pošto.
-- **`phone`**: Prikaže številčnico z dodanimi znaki za telefonske številke (npr. `+`, `*`, `#`, premor), kar omogoča hiter vnos telefonske številke.
-- **`textMultiLine`**: Omogoča večvrstični vnos besedila. Spremeni tipko za potrditev (Enter) v novo vrstico namesto prehoda na naslednje polje in samodejno razširi polje po višini.
-
-### 2. Kakšna je naloga razredov `ArrayAdapter` in `Spinner` ter metode `onItemSelected()`?
-- **`Spinner`**: Uporabniški gradnik (pustni izbirnik / padajoči meni), ki uporabniku omogoča izbiro ene vrednosti iz seznama ponujenih možnosti.
-- **`ArrayAdapter`**: Vmesniški razred (adapter), ki povezuje podatkovni vir (npr. `string-array` iz `strings.xml` ali seznam v Javi) z gradnikom `Spinner` ter skrbi za pretvorbo elementov v ustrezne poglede (`View`).
-- **`onItemSelected()`**: Klicna metoda (*callback*) vmesnika `OnItemSelectedListener`, ki se sproži, ko uporabnik klikne in izbere posamezno postavko v `Spinnerju`. Omogoča nam zajem izbrane vrednosti v kodi.
-
-### 3. Zakaj uporabimo `RadioGroup`, če ponujamo tri medsebojno izključujoče možnosti?
-`RadioGroup` je vsebnik za gradnike `RadioButton`, ki zagotavlja **medsebojno izključevanje** (*mutual exclusion*). Ko uporabnik izbere en `RadioButton` znotraj iste skupine `RadioGroup`, se vsi ostali gumbi v skupini samodejno odznačijo. Brez `RadioGroup` bi moral razvijalec ročno upravljati stanja vseh gumbov ob vsakem kliku.
-
-### 4. Kakšna je razlika med `AlertDialog` in `DatePickerDialog` oziroma `TimePickerDialog`?
-- **`AlertDialog`**: Splošno pogovorno okno za prikaz sporočil, opozoril ali povzetkov z možnostjo dodajanja naslova, besedila in gumbov za ukrepanje (npr. *POTRDI*, *PREKLIČI*).
-- **`DatePickerDialog`**: Specializirano pogovorno okno, prilagojeno izbiri datuma (leto, mesec, dan) z integriranim koledarjem.
-- **`TimePickerDialog`**: Specializirano pogovorno okno, prilagojeno izbiri ure in minut (v 12-urnem ali 24-urnem formatu) z urejevalnikom ur.
-
-### 5. Kako s pomočjo `Intent` in `putExtra` prenesemo izbrano napravo v drugo dejavnost?
-V začetni dejavnosti ustvarimo eksplicitni `Intent`:
-```java
-Intent intent = new Intent(MainActivity.this, RezervacijaActivity.class);
-intent.putExtra("com.example.servis.EXTRA_DEVICE", deviceName);
-startActivity(intent);
-```
-V ciljni dejavnosti (`RezervacijaActivity`) prevzamemo podatek v `onCreate()`:
-```java
-if (getIntent() != null && getIntent().hasExtra("com.example.servis.EXTRA_DEVICE")) {
-    String deviceName = getIntent().getStringExtra("com.example.servis.EXTRA_DEVICE");
-}
-```
-
-### 6. Kdaj se v vaši aplikaciji izvede potrditvena in kdaj preklicna veja dialoga?
-- **Potrditvena veja (`setPositiveButton` — POTRDI)**: Izvede se, ko uporabnik v pogovornem oknu `AlertDialog` klikne na gumb "POTRDI". Ob tem se prikaže obvestilo `Toast` o uspešni demonstracijski oddaji rezervacije.
-- **Preklicna veja (`setNegativeButton` — PREKLIČI)**: Izvede se, ko uporabnik klikne na gumb "PREKLIČI" ali zapre dialog s klikom izven okna. Dialog se zapre (`dismiss()`), uporabnik pa ostane na obrazcu z vsemi predhodno vnesenimi podatki.
 
 ---
 

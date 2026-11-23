@@ -9,17 +9,17 @@
     android:orientation="vertical"
     tools:context=".RezervacijaActivity">
 
-    <!-- Top Header Bar -->
     <LinearLayout
         android:id="@+id/header_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="64dp"
+        android:minHeight="84dp"
         android:background="@color/primary_navy"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="12dp"
-        android:paddingEnd="20dp">
+        android:paddingEnd="20dp"
+        android:paddingBottom="16dp">
 
         <ImageView
             android:id="@+id/btn_back"
@@ -39,7 +39,7 @@
             android:layout_marginStart="8dp"
             android:text="@string/reservation_title_prefix"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -55,7 +55,6 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <!-- Section 1: Kontaktni podatki -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,7 +71,6 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
 
-            <!-- Ime in priimek -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +95,6 @@
                 android:textColorHint="#94A3B8"
                 android:textSize="15sp" />
 
-            <!-- E-poštni naslov -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -122,7 +119,6 @@
                 android:textColorHint="#94A3B8"
                 android:textSize="15sp" />
 
-            <!-- Telefon -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -147,7 +143,6 @@
                 android:textColorHint="#94A3B8"
                 android:textSize="15sp" />
 
-            <!-- Vrsta posega (Spinner) -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -166,7 +161,6 @@
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp" />
 
-            <!-- Opis težave -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -193,7 +187,6 @@
                 android:textColorHint="#94A3B8"
                 android:textSize="14sp" />
 
-            <!-- Section 2: Termin obiska -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -211,7 +204,6 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="13sp" />
 
-            <!-- Datum Picker Container -->
             <LinearLayout
                 android:id="@+id/btn_select_date"
                 android:layout_width="match_parent"
@@ -263,7 +255,6 @@
                     android:src="@drawable/ic_chevron_right" />
             </LinearLayout>
 
-            <!-- Ura Picker Container -->
             <LinearLayout
                 android:id="@+id/btn_select_time"
                 android:layout_width="match_parent"
@@ -315,7 +306,6 @@
                     android:src="@drawable/ic_chevron_right" />
             </LinearLayout>
 
-            <!-- Section 3: Način kontakta -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -371,7 +361,6 @@
                     android:textSize="15sp" />
             </RadioGroup>
 
-            <!-- Dodatni izziv: Security Code & Quick Action -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -406,7 +395,6 @@
                 android:textColor="@color/accent_blue"
                 app:strokeColor="@color/accent_blue" />
 
-            <!-- Disclaimer text -->
             <TextView
                 android:id="@+id/tv_disclaimer"
                 android:layout_width="match_parent"
@@ -417,7 +405,6 @@
                 android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
 
-            <!-- Submit Button -->
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_submit"
                 android:layout_width="match_parent"

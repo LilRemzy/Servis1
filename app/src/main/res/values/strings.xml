@@ -34,7 +34,7 @@
     <string name="label_problem_description">OPIS TEŽAVE</string>
     <string name="hint_problem_description">Računalnik se ob zagonu po nekaj minutah izklopi.</string>
 
-    <string name="label_security_code">ZAŠČITNA KODA (DODATNI IZZIV)</string>
+    <string name="label_security_code">ZAŠČITNA KODA</string>
     <string name="hint_security_code">Vnesite geslo/kodu</string>
     <string name="btn_dial_service">Pokliči servis (080 123 456)</string>
 
