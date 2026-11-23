@@ -29,13 +29,6 @@ V tej nalogi sem naredil demonstracijsko aplikacijo **Moj IT servis** za naroča
 | **Način kontakta** | izbrana je lahko le ena možnost, izbira se prikaže v obvestilu | `RadioGroup` + `Toast` |
 | **POTRDI REZERVACIJO** | preveri vnos in prikaže povzetek rezervacije | `AlertDialog.Builder` |
 
-### Preverjanje vnosa
-
-- ime in priimek, e-pošta, telefon in opis težave so obvezni (opozorilo z `setError`),
-- e-pošta mora biti v veljavni obliki,
-- obvezni so tudi datum, ura in način kontakta (opozorilo s `Toast`),
-- datum ne sme biti v preteklosti,
-- če kateri podatek manjka, se potrditveno okno ne odpre.
 
 ### Potrditveno okno
 
