@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name">Moj IT servis</string>
+    <string name="main_header_title">Moj IT servis</string>
+    <string name="select_device_title">Izberite napravo</string>
+    <string name="select_device_subtitle">Za katero napravo potrebujete servis?</string>
+
+    <string name="device_computer_title">Računalnik</string>
+    <string name="device_computer_desc">Diagnostika, popravilo ali nadgradnja</string>
+    <string name="device_computer_content_desc">Ikona računalnika</string>
+
+    <string name="device_phone_title">Telefon</string>
+    <string name="device_phone_desc">Pregled in odprava napak</string>
+    <string name="device_phone_content_desc">Ikona telefona</string>
+
+    <string name="device_printer_title">Tiskalnik</string>
+    <string name="device_printer_desc">Pomoč pri tiskanju in vzdrževanju</string>
+    <string name="device_printer_content_desc">Ikona tiskalnika</string>
+
+    <string name="info_card_title">Kako poteka rezervacija?</string>
+    <string name="info_card_desc">Izberite napravo, izpolnite obrazec in potrdite zahtevek.</string>
+
+    <string name="btn_back">Nazaj</string>
+    <string name="reservation_title_prefix">Rezervacija • </string>
+    <string name="contact_info_section_title">Kontaktni podatki</string>
+    <string name="contact_info_section_subtitle">Vnesite podatke za rezervacijo termina.</string>
+
+    <string name="label_name">IME IN PRIIMEK</string>
+    <string name="hint_name">Ana Novak</string>
+    <string name="label_email">E-POŠTNI NASLOV</string>
+    <string name="hint_email">ana.novak@example.si</string>
+    <string name="label_phone">TELEFON</string>
+    <string name="hint_phone">031 555 123</string>
+    <string name="label_service_type">VRSTA POSEGA</string>
+    <string name="label_problem_description">OPIS TEŽAVE</string>
+    <string name="hint_problem_description">Računalnik se ob zagonu po nekaj minutah izklopi.</string>
+
+    <string name="label_security_code">ZAŠČITNA KODA (DODATNI IZZIV)</string>
+    <string name="hint_security_code">Vnesite geslo/kodu</string>
+    <string name="btn_dial_service">Pokliči servis (080 123 456)</string>
+
+    <string name="visit_time_section_title">Termin obiska</string>
+    <string name="visit_time_section_subtitle">Izberite datum in uro.</string>
+    <string name="label_date">DATUM</string>
+    <string name="hint_select_date">Izberite datum</string>
+    <string name="label_time">URA</string>
+    <string name="hint_select_time">Izberite uro</string>
+
+    <string name="contact_method_section_title">Način kontakta</string>
+    <string name="contact_method_section_subtitle">Izberite želeni način obveščanja.</string>
+    <string name="radio_email">E-pošta</string>
+    <string name="radio_phone">Telefonski klic</string>
+    <string name="radio_sms">SMS</string>
+
+    <string name="disclaimer_text">Nadaljujte spodaj: termin in način kontakta.\nOpomba: Rezervacija je demonstracijska; podatki se ne pošljejo servisu.</string>
+    <string name="btn_confirm_reservation">POTRDI REZERVACIJO</string>
+
+    <string-array name="service_types">
+        <item>Diagnostika</item>
+        <item>Popravilo</item>
+        <item>Nadgradnja</item>
+        <item>Drugo</item>
+    </string-array>
+
+    <string name="error_name_required">Prosimo, vnesite ime in priimek.</string>
+    <string name="error_email_required">Prosimo, vnesite e-poštni naslov.</string>
+    <string name="error_email_invalid">Vnesite veljaven e-poštni naslov (npr. ime@domena.si).</string>
+    <string name="error_phone_required">Prosimo, vnesite telefonsko številko.</string>
+    <string name="error_date_required">Prosimo, izberite datum obiska.</string>
+    <string name="error_date_past">Izbrani datum obiska ne sme biti v preteklosti!</string>
+    <string name="error_time_required">Prosimo, izberite uro obiska.</string>
+    <string name="error_contact_method_required">Prosimo, izberite način kontakta.</string>
+
+    <string name="toast_contact_method">Izbran način kontakta: %s</string>
+    <string name="toast_reservation_success">Rezervacija za napravo %s je bila uspešno oddana! Hvala.</string>
+    <string name="toast_reservation_cancelled">Rezervacija preklicana. Ostajate v obrazcu.</string>
+
+    <string name="dialog_title">Potrditev zahtevka</string>
+    <string name="dialog_btn_confirm">POTRDI</string>
+    <string name="dialog_btn_cancel">PREKLIČI</string>
+    <string name="dialog_message_format">%1$s • %2$s\n%3$s\n%4$s ob %5$s\nNačin kontakta: %6$s\n\nŽelite potrditi rezervacijo?</string>
+</resources>
